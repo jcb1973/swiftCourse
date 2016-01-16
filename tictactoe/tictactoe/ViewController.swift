@@ -10,31 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var gameOver = false
-    var moveCounter = 0
-
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet var buttons: [UIButton]!
+    
     @IBAction func startNewGame(sender: UIButton) {
         gameOver = false
         setUpBlankBoard()
         moveCounter = 0
     }
-    @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet var buttons: [UIButton]!
-    
+
     @IBAction func buttonClicked(sender: UIButton) {
-        moveCounter++
         
-        print("button \(sender.tag) tapped button is \(sender.alpha)")
+        if gameOver {return}
+        
+        moveCounter++
         makeMove(sender.tag)
         if moveCounter == 9 {
             endGame()
         }
-        if gameOver {
-            return
-        }
-        
+    
     }
     
+    var gameOver = false
+    var moveCounter = 0
     var noughtsMove = true
     var noughtsState: [Int] = [0,0,0,0,0,0,0,0,0]
     var crossesState: [Int] = [0,0,0,0,0,0,0,0,0]
@@ -90,12 +88,7 @@ class ViewController: UIViewController {
                 if (combi[i] == 1 && position[i] == 1) {
                     score++
                     if score == 3 {
-                        if noughtsMove {
-                        makeNoughtsGreenForCombi(combi)
-                            print ("noughts wins")
-                        } else {
-                            print ("crosses wins")
-                        }
+                        makeSquaresGreenForCombi(combi)
                         endGame()
                         break
                     }
@@ -109,7 +102,7 @@ class ViewController: UIViewController {
         newGameButton.hidden = false
     }
     
-    func makeNoughtsGreenForCombi(winningCombination: [Int]) {
+    func makeSquaresGreenForCombi(winningCombination: [Int]) {
         
         for i in 0...8 {
             if winningCombination[i] == 1 {
