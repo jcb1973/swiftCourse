@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TimerTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-zB-a0K">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2LQ-iW-mkZ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Countdown" id="71Z-Ky-mh1"/>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8M-Pi-kGK">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vD6-ac-Wvj"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem enabled="NO" title="Reset" id="dZo-Yk-pw7">
+                                        <connections>
+                                            <action selector="actionPressed:" destination="BYZ-38-t0r" id="6Iz-yO-ZhT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DIx-gY-GRh"/>
+                                    <barButtonItem title="Start" id="BGP-9m-mJI">
+                                        <connections>
+                                            <action selector="actionPressed:" destination="BYZ-38-t0r" id="gnx-GN-Tz0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="g8K-53-82U"/>
+                                    <barButtonItem enabled="NO" title="Stop" id="EJb-hk-UyA">
+                                        <connections>
+                                            <action selector="actionPressed:" destination="BYZ-38-t0r" id="z4B-VM-Wml"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHB-SL-kkp">
+                                <rect key="frame" x="20" y="269" width="560" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="fcs-3U-5Nx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-CQ-lFz">
+                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PHB-SL-kkp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2AS-dc-MUM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m8M-Pi-kGK" secondAttribute="trailing" constant="-20" id="FGg-wt-dBL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vtw-CQ-lFz" secondAttribute="trailing" constant="-20" id="IjC-ar-W1e"/>
+                            <constraint firstItem="PHB-SL-kkp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="22" id="Jaq-9P-Rp3"/>
+                            <constraint firstItem="Nih-zB-a0K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TFY-R5-708"/>
+                            <constraint firstItem="m8M-Pi-kGK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="UnI-3Z-fyo"/>
+                            <constraint firstItem="PHB-SL-kkp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Uva-hh-4Hj"/>
+                            <constraint firstItem="PHB-SL-kkp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="acv-5Z-VAE"/>
+                            <constraint firstItem="vtw-CQ-lFz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ayH-jF-7I8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m8M-Pi-kGK" secondAttribute="bottom" id="bs5-ap-Fyb"/>
+                            <constraint firstItem="Nih-zB-a0K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="gbr-67-1JH"/>
+                            <constraint firstItem="vtw-CQ-lFz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3q-ny-5ur"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nih-zB-a0K" secondAttribute="trailing" constant="-20" id="y0C-lg-ZYC"/>
+                            <constraint firstItem="vtw-CQ-lFz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zTx-4T-qUA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Jaq-9P-Rp3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="vtw-CQ-lFz" id="9xc-9f-BmE"/>
+                        <outlet property="resetButton" destination="dZo-Yk-pw7" id="jr3-CN-TcJ"/>
+                        <outlet property="startButton" destination="BGP-9m-mJI" id="JaS-RE-3Tv"/>
+                        <outlet property="stopButton" destination="EJb-hk-UyA" id="KEp-L2-lS1"/>
+                        <outlet property="timeDisplayLabel" destination="PHB-SL-kkp" id="TR2-wk-5hh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="376"/>
+        </scene>
+    </scenes>
+</document>
