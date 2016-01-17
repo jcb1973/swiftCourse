@@ -61,6 +61,7 @@ class ViewController: UIViewController {
         }
         image = UIImage(named: imgName) as UIImage!
         buttons[index].setImage(image, forState: .Normal)
+        buttons[index].enabled = false
         
         if noughtsMove {
             

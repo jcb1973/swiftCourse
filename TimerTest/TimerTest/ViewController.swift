@@ -18,20 +18,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
 
     var timeSelected: [String: Int] = [
-        "Hard": (60 * 7),
-        "Medium": (60 * 5) + 30,
-        "Soft": (60 * 4) + 30]
+        "Hard": (45),
+        "Medium": (15),
+        "Soft": (3)]
     
     //var pickerData: [[String]] = [[String]]()
-    let pickerData = ["Hard", "Medium", "Soft"]
+    var pickerData = ["Hard", "Medium", "Soft"]
 
+    var timeStarted = NSDate()
+    var endTime = NSDate()
     var timeRemaining = 0
     var timeChosen = ""
     
     var isRunning = false
     var shouldReset = false
     var timer = NSTimer()
-    
     
     var buttonBeep : AVAudioPlayer?
     
@@ -58,6 +59,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func getTimeRemaining() -> Int {
         return timeRemaining
     }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        self.pickerData = [String] (timeSelected.keys) //order???
+//        super.init(coder: aDecoder)
+//        
+//    }
 
     func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer?  {
         //1
@@ -116,13 +123,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    func stopAlarm(alert: UIAlertAction!) {
+        buttonBeep?.stop()
+    }
+    
     func doFinishedAlert() {
         
         // create the alert
         let alert = UIAlertController(title: "Finished!", message: "Your egg is ready", preferredStyle: UIAlertControllerStyle.Alert)
         
         // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: stopAlarm ))
         
         // show the alert
         buttonBeep?.play()
@@ -138,10 +149,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func doStart() {
         //print ("should reset is \(shouldReset)")
+        
         if isRunning {
             print("hit start while running - no op")
             return
         }
+        
+        timeStarted = NSDate()
+        endTime = timeStarted.dateByAddingTimeInterval(Double(timeSelected[timeChosen]!))
         
         isRunning = true
         if shouldReset {
@@ -184,6 +199,26 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateButtonState("paused")
         timer.invalidate()
     }
+    func restartTimer() {
+        let now = NSDate()
+        // let remaining = endTime - now
+        // print(remaining)
+        let calendar = NSCalendar.currentCalendar()
+        let datecomponenets = calendar.components(NSCalendarUnit.Second, fromDate: now, toDate: endTime, options: NSCalendarOptions.init(rawValue: 0))
+        let seconds = datecomponenets.second
+        print("Seconds: \(seconds)")
+        if (seconds > 0) {
+            updateUI(seconds)
+            timeRemaining = seconds
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("fireSecond"), userInfo: nil, repeats: true)
+        } else {
+            isRunning = false
+            updateUI(0)
+            updateButtonState("finished")
+        }
+        //timer.fire()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -199,7 +234,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.picker.dataSource = self
         self.picker.hidden = true
         
-        if let buttonBeep = self.setupAudioPlayerWithFile("ButtonTap", type:"wav") {
+        if let buttonBeep = self.setupAudioPlayerWithFile("HallOfTheMountainKing", type:"mp3") {
             self.buttonBeep = buttonBeep
         }
         doReset()

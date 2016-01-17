@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520434F01C4B7AF400FAAD1E /* HallOfTheMountainKing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520434EF1C4B7AF400FAAD1E /* HallOfTheMountainKing.mp3 */; };
+		520434F21C4BA98800FAAD1E /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 520434F11C4BA98800FAAD1E /* ButtonTap.wav */; };
 		52415FB11C42ACB40046ED78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52415FB01C42ACB40046ED78 /* AppDelegate.swift */; };
 		52415FB31C42ACB40046ED78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52415FB21C42ACB40046ED78 /* ViewController.swift */; };
 		52415FB61C42ACB50046ED78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52415FB41C42ACB50046ED78 /* Main.storyboard */; };
 		52415FB81C42ACB50046ED78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52415FB71C42ACB50046ED78 /* Assets.xcassets */; };
 		52415FBB1C42ACB50046ED78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52415FB91C42ACB50046ED78 /* LaunchScreen.storyboard */; };
-		52415FC31C42F0990046ED78 /* ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52415FC21C42F0990046ED78 /* ButtonTap.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520434EF1C4B7AF400FAAD1E /* HallOfTheMountainKing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = HallOfTheMountainKing.mp3; sourceTree = "<group>"; };
+		520434F11C4BA98800FAAD1E /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonTap.wav; sourceTree = "<group>"; };
 		52415FAD1C42ACB40046ED78 /* TimerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52415FB01C42ACB40046ED78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52415FB21C42ACB40046ED78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +26,6 @@
 		52415FB71C42ACB50046ED78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52415FBA1C42ACB50046ED78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52415FBC1C42ACB50046ED78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52415FC21C42F0990046ED78 /* ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ButtonTap.wav; path = ../../../Downloads/Sounds/ButtonTap.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,14 @@
 		52415FAF1C42ACB40046ED78 /* TimerTest */ = {
 			isa = PBXGroup;
 			children = (
-				52415FC21C42F0990046ED78 /* ButtonTap.wav */,
 				52415FB01C42ACB40046ED78 /* AppDelegate.swift */,
 				52415FB21C42ACB40046ED78 /* ViewController.swift */,
 				52415FB41C42ACB50046ED78 /* Main.storyboard */,
 				52415FB71C42ACB50046ED78 /* Assets.xcassets */,
 				52415FB91C42ACB50046ED78 /* LaunchScreen.storyboard */,
 				52415FBC1C42ACB50046ED78 /* Info.plist */,
+				520434F11C4BA98800FAAD1E /* ButtonTap.wav */,
+				520434EF1C4B7AF400FAAD1E /* HallOfTheMountainKing.mp3 */,
 			);
 			path = TimerTest;
 			sourceTree = "<group>";
@@ -127,7 +130,8 @@
 			files = (
 				52415FBB1C42ACB50046ED78 /* LaunchScreen.storyboard in Resources */,
 				52415FB81C42ACB50046ED78 /* Assets.xcassets in Resources */,
-				52415FC31C42F0990046ED78 /* ButtonTap.wav in Resources */,
+				520434F01C4B7AF400FAAD1E /* HallOfTheMountainKing.mp3 in Resources */,
+				520434F21C4BA98800FAAD1E /* ButtonTap.wav in Resources */,
 				52415FB61C42ACB50046ED78 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +292,7 @@
 				52415FC11C42ACB50046ED78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,11 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    //var vc = ViewController()
-
+    //var vc = ViewController(
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        if #available(iOS 8, *) {
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        }
+
         return true
     }
 
@@ -31,10 +34,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("did enter background")
         let vc = self.window!.rootViewController! as! ViewController
         print ("view controller property \(vc.getTimeRemaining())")
+        vc.timer.invalidate()
+        
+        let notification:UILocalNotification = UILocalNotification()
+        notification.category = "News and Sports"
+        notification.alertAction = "get caught up with the world"
+        notification.soundName = "ButtonTap.wav"
+        notification.alertBody = "LIVE news and sports on VIC in just a minute!"
+        notification.fireDate = vc.endTime
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        let vc = self.window!.rootViewController! as! ViewController
+        vc.restartTimer()
+        
+        
+
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
