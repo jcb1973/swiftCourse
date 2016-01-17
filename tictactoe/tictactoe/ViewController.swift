@@ -121,6 +121,7 @@ class ViewController: UIViewController {
     func setUpBlankBoard() {
         
         for b in buttons {
+            b.enabled = true
             let image = UIImage(named: "Blank.png") as UIImage!
             b.setImage(image, forState: .Normal)
             b.imageView!.backgroundColor = UIColor.clearColor()
