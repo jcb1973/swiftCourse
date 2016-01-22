@@ -116,6 +116,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpBlankBoard()
+        
+        //var uilpr = UILongPressGestureRecognizer(target: AnyObject?, action: <#T##Selector#>)
     }
     
     func setUpBlankBoard() {
